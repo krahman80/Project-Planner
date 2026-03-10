@@ -1,11 +1,11 @@
 <template>
-<div class="project">
+<div class="project" :class="{complete: project.complete}">
     <div class="actions">
         <h3 @click="showDetails = !showDetails">{{ project.title }}</h3>
         <div class="icons">
             <span class="material-symbols-outlined">edit</span>
             <span class="material-symbols-outlined" @click="deleteProject">delete</span>
-            <span class="material-symbols-outlined" @click="updateProject">check</span>
+            <span class="material-symbols-outlined tick" @click="toggleComplete">check</span>
         </div>
     </div>
     <div v-if="showDetails" class="details">
@@ -29,6 +29,15 @@ export default {
             .then(() => this.$emit('delete', this.project.id))
             .catch(err => console.log(err.message))
         },
+        toggleComplete() {
+            fetch(this.uri, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ complete: !this.project.complete})
+            }).then(() => {
+                this.$emit('complete', this.project.id)
+            }).catch((err) => err.message)
+        }
     }
 }
 </script>
@@ -58,5 +67,12 @@ export default {
   }
   .material-symbols-outlined:hover {
     color: #777;
+  }
+  /* completed projects */
+  .project.complete {
+    border-left: 4px solid #00ce89;
+  }
+  .project.complete .tick {
+    color: #00ce89;
   }
 </style>
