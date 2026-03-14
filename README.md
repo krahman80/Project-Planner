@@ -1,6 +1,6 @@
 # Project-Planner
 
-Simple Project Planner build with Vue 3 in Vite.
+Blog with Vue 3 in Vite.
 
 ## Project Setup
 
