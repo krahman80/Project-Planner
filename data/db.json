@@ -14,14 +14,14 @@
     },
     {
       "id": "c593",
-      "title": "Building New Website",
-      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan fermentum justo id ullamcorper. Phasellus convallis leo justo, et lobortis enim lobortis quis. Cras eros justo, lacinia sed tempus sed, vestibulum vel eros. Nunc scelerisque malesuada purus, tincidunt tempus eros.",
+      "title": "Building New Website Edit!",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan fermentum justo id ullamcorper. ",
       "complete": true
     },
     {
       "id": "9789",
       "title": "Redesign web design",
-      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing Hello world.",
       "complete": true
     }
   ],
