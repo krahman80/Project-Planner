@@ -2,6 +2,8 @@
 Home
 <p ref="p">my name is {{ name }} and age {{ age }}</p>
 <button @click="handleClick">Click me</button>
+<button @click="age++">add 1 to ge</button>
+<input type="text" v-model="name">
 </template>
 
 <script>
@@ -10,21 +12,16 @@ import { ref } from 'vue'
 export default {
   name: 'Home',
   setup() {
-    console.log(this)
 
-    const p = ref('hello')
-    console.log(p, p.value)
-
-    let name = 'mario'
-    let age = 30
+    let name = ref('mario')
+    let age = ref(30)
 
     const handleClick = () => {
-      console.log(p, p.value)
-      p.value.classList.add('test')
-      p.value.textContent = 'hello, ninjas'
+      name.value = 'luigi'
+      age.value = 35
     }
 
-    return { name, age, handleClick, p  }
+    return { name, age, handleClick }
   } 
 }
 </script>
