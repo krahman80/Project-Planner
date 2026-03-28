@@ -5,7 +5,7 @@
     </RouterLink>
     <p>{{ snippet }}</p>
     <span v-for="tag in post.tags" :id="tag">
-        #{{ tag }}
+       <RouterLink :to="{name: 'Tag', params: { tag: tag}}">#{{ tag }}</RouterLink>&nbsp;
     </span>
 </div>
 </template>
