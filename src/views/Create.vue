@@ -25,6 +25,7 @@
 <script>
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
+import { projectFirestore } from '../firebase/config';
 
 export default {
     setup() {
@@ -48,26 +49,15 @@ export default {
 
         const handleSubmit = async () => {
           const post = {
-            id: Math.floor(Math.random() * 10000),
             title: title.value,
             body: body.value,
             tags: tags.value
             }  
           
-            try {
-                let data = await fetch('http://localhost:3000/posts', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(post)
-                })
-                if(!data.ok) {
-                    throw Error('Submit failed')
-                }                 
-                router.push('/')
-            } catch (err) {
-                console.log(err.message)
-            }
+            const res = await projectFirestore.collection('posts').add(post)            
+            // console.log(res)
 
+            router.push({ name: 'Home' })
         }
 
         return { title, body, tag, tags, handleKeydown, handleSubmit }
